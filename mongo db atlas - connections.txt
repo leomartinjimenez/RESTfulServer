@@ -1,0 +1,9 @@
+Mongo Atlas DB
+------------------------
+ -. user:	crackmagic
+ -. password: 	nvbCryuZ1rWJbR6d
+
+ -. MongoDB remote Atlas URL (SRV Record enable) using "Mongo Compass client":
+  mongodb+srv://crackmagic:nvbCryuZ1rWJbR6d@cluster0-pzplf.mongodb.net/coffeeShop
+
+------------------------

@@ -1,26 +1,19 @@
 {
-    "name": "restfulserver",
-    "version": "1.0.0",
-    "description": "> NodeJS: Curso \"NodeJS desde Cero a Experto\"",
-    "main": "index.js",
-    "scripts": {
-        "start": "node server/server.js",
-        "nodemon": "nodemon server/server.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "Leo Martin",
-    "license": "MIT",
-    "dependencies": {
-        "body-parser": "^1.18.3",
-        "express": "^4.16.4"
-    },
-    "devDependencies": {},
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/leomartinjimenez/RESTfulServer.git"
-    },
-    "bugs": {
-        "url": "https://github.com/leomartinjimenez/RESTfulServer/issues"
-    },
-    "homepage": "https://github.com/leomartinjimenez/RESTfulServer#readme"
+  "name": "07-restserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Leo Martin",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^3.0.4",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.13",
+    "mongoose-unique-validator": "^2.0.2",
+    "underscore": "^1.9.1"
+  }
 }
