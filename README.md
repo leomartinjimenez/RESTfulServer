@@ -5,12 +5,14 @@
 
 ```
 npm install
+npm update
 ```
 
 2. Go to the folder "server" and execute the server.js file with the tool nodemon (https://www.npmjs.com/package/nodemon).
 
 ```
 cd server
+npm i -g nodemon
 nodemon server.js
 ```
 
