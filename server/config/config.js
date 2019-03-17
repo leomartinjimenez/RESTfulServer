@@ -6,7 +6,7 @@ process.env.PORT = process.env.PORT || 3001
 //==========================================
 //  Environment
 //==========================================
-process.env.NODE_ENV = process.env.NODE_ENV || 'dev'
+process.env.NODE_ENV = process.env.NODE_ENV || 'prod' // 'dev'
 
 
 //==========================================
