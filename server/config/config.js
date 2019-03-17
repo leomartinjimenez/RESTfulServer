@@ -3,12 +3,23 @@
 //==========================================
 process.env.PORT = process.env.PORT || 3001
 
+//==========================================
+//  Environment
+//==========================================
+process.env.NODE_ENV = process.env.NODE_ENV || 'dev'
+
 
 //==========================================
 //  Database Connection - MongoDB
 //==========================================
-const mongoBaseUrl = 'mongodb://localhost:27017';
-const mongoDbName = '/coffeeShop';
+
+let mongoBaseUrl;
+
+if (process.env.NODE_ENV === 'dev') {
+    mongoBaseUrl = 'mongodb://localhost:27017/coffeeShop';
+} else {
+    mongoBaseUrl = 'mongodb+srv://crackmagic:nvbCryuZ1rWJbR6d@cluster0-pzplf.mongodb.net/coffeeShop';
+}
 
 const mongoConnectOptions = {
     useNewUrlParser: true,
@@ -30,6 +41,5 @@ const mongoConnectOptions = {
 
 module.exports = {
     mongoBaseUrl,
-    mongoDbName,
     mongoConnectOptions
 }

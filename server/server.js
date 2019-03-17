@@ -1,5 +1,5 @@
 const serverConfig = require('./config/config')
-//console.log(serverConfig.mongoConnectOptions)
+    //console.log(serverConfig.mongoConnectOptions)
 
 const express = require('express')
 const mongoose = require('mongoose')
@@ -15,19 +15,17 @@ app.use(bodyParser.json())
 
 // import usuario.js
 app.use(require('./routes/usuario'))
- 
 
-mongoose.connect(serverConfig.mongoBaseUrl+serverConfig.mongoDbName, serverConfig.mongoConnectOptions,(error, res)=>{
+mongoose.connect(serverConfig.mongoBaseUrl, serverConfig.mongoConnectOptions, (error, res) => {
     if (error) {
         throw error
-    }    
+    }
 
     console.log('Base de Datos ONLINE, conexion satisfactoria :) ')
- }
-)
+})
 
 app.listen(process.env.PORT, () => {
     console.log('Escuchando puerto: ', process.env.PORT, )
-}) 
+})
 
 //console.log(module)
