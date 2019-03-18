@@ -8,6 +8,37 @@ const app = express()
 
 // HTTP Methods of the SERVER
 //-------------------------------------------
+
+// GetById - TypeI
+//-----------------------------
+app.get('/usuario/:id', function(req, res) {
+    let id = req.params.id
+    let body = _.pick(req.body, ['nombre', 'email', 'img', 'role', 'estado'])
+
+    // delete body.password
+    // delete body.google
+
+
+    Usuario.findById(id, body, { new: true, runValidators: true }, (error, usuarioDB) => {
+        if (error) {
+            // 400 - Bad request
+            return res.status(400).json({
+                ok: false,
+                error
+            })
+        }
+
+        res.json({
+            ok: true,
+            usuario: usuarioDB
+        })
+    })
+
+
+})
+
+// GetBySearchQuery - TypeII
+//-----------------------------
 app.get('/usuario', function(req, res) {
 
     // Paging  
