@@ -21,11 +21,11 @@ mongoose.connect(serverConfig.mongoBaseUrl, serverConfig.mongoConnectOptions, (e
         throw error
     }
 
-    console.log('Base de Datos ONLINE, conexion satisfactoria :) ')
+    console.log('The Database is READY, the connection was successfuly :) ')
 })
 
 app.listen(process.env.PORT, () => {
-    console.log('Escuchando puerto: ', process.env.PORT, )
+    console.log('The RESTfulServer PORT enabled on: ', process.env.PORT, )
 })
 
 //console.log(module)
