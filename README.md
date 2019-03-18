@@ -16,3 +16,10 @@ npm i -g nodemon
 nodemon server.js
 ```
 
+or
+
+```
+  npm start --> This command executes "start": "node server/server.js" of package.json. This one must exist to deploy the App in "Heroku Application Platform".
+  npm run nodemon --> This command executes "nodemon server/server.js" of package.json
+  
+```
