@@ -23,3 +23,28 @@ or
   npm run nodemon --> This command executes "nodemon server/server.js" of package.json
   
 ```
+
+
+## Remote Environment
+> * Heroku: Cloud Application Platform --> Public Environment deployed
+>     * CURRENT deployed Server (baseUrl) --> https://hoysiquepuedes-restfulserver.herokuapp.com
+>     * Supported requests:
+>          * HTTP GET byId TypeI --> {{baseUrl}}/usuario/{{id}}
+>          * HTTP GET bySearchQuery TypeII --> {{baseUrl}}/usuario?fromPaging=0&resultLimit=10  ||  {{baseUrl}}/usuario?fromPaging=0&_count=10
+
+>          * HTTP POST for creating "usuario" --> {{baseUrl}}/usuario
+>               * Body request e.g. 
+                        {
+                            "nombre":"Leonardo",
+                            "edad": 32,
+                            "email":"test1@gmail.com",
+                            "password":"12345",
+                            "role" : "USER_ROLE"
+                        }
+
+>          * HTTP DELETE byId --> {{baseUrl}}/usuario/{{id}}
+
+
+
+## Changelog
+> Detailed changes for each release are documented in the [release notes](https://github.com/leomartinjimenez/RESTfulServer/releases).
