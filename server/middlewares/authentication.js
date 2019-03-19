@@ -6,13 +6,15 @@ const jwt = require('jsonwebtoken')
 
 let validateToken = (req, res, next) =>{
 
-    let incomingAuthorization = req.get('Authorization') // Header
+    let accessToken = req.get('Authorization') // HTTP Header
 
     // Delete the Bearer token prefix
-    let incomingToken = incomingAuthorization.split('Bearer ')[1] || incomingAuthorization
-    console.log('*** Incoming HTTP Header--> Authorization:' + incomingAuthorization)
+    if (accessToken) {
+        accessToken = accessToken.split('Bearer ')[1] || accessToken
+    }
+    console.log('*** Incoming HTTP Header--> Authorization:' + accessToken)
 
-    jwt.verify(incomingToken, process.env.TOKEN_SEED, (error, decoded) => {
+    jwt.verify(accessToken, process.env.TOKEN_SEED, (error, decoded) => {
         if (error){
             return res.status(401).json({
                 ok: false,

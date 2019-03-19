@@ -57,7 +57,12 @@ app.post('/login', (req, res) => {
         res.json({
             ok : true,
             usuario : usuarioDB,
-            token: generatedToken
+            token: {
+                expiration: process.env.TOKEN_EXPIRATION,
+                type: 'Bearer',
+                accessToken: generatedToken
+            }
+            
             /* See the https://jwt.io/ to DECODED the TOKEN */
             /* This token should persist in the "Local Storage" by the FrontEnd client */
         })
