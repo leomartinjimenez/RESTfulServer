@@ -1,7 +1,10 @@
 const express = require('express')
-const Usuario = require('../models/usuario')
+
 const bcrypt = require('bcrypt')
 const _ = require('underscore')
+
+const Usuario = require('../models/usuario')
+const {validateToken} = require('../middlewares/authentication')
 
 const app = express()
 
@@ -11,7 +14,10 @@ const app = express()
 
 // GetById - TypeI
 //-----------------------------
-app.get('/usuario/:id', function(req, res) {
+app.get('/usuario/:id', validateToken , (req, res) => {
+    /* validateToken is the MIDDLEWARE which is going to trigger ç
+       when the current route is executed */
+       
     let id = req.params.id
     let body = _.pick(req.body, ['nombre', 'email', 'img', 'role', 'estado'])
 

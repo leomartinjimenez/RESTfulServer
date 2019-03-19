@@ -67,8 +67,10 @@ app.use(bodyParser.json())
 app.use(bodyParser.xml())
  
 
-// import usuario.js
-app.use(require('./routes/usuario'))
+// Global configuration of "routes"
+//-------------------------------------
+app.use(require('./routes/index'))
+//-------------------------------------
 
 mongoose.connect(serverConfig.mongoBaseUrl, serverConfig.mongoConnectOptions, (error, res) => {
     if (error) {
@@ -78,8 +80,10 @@ mongoose.connect(serverConfig.mongoBaseUrl, serverConfig.mongoConnectOptions, (e
     console.log('The Database is READY, the connection was successfuly :) ')
 })
 
+
+//console.log(module)
+
 app.listen(process.env.PORT, () => {
     console.log('The RESTfulServer PORT enabled on: ', process.env.PORT, )
 })
 
-//console.log(module)
