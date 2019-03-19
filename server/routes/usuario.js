@@ -17,7 +17,7 @@ const app = express()
 app.get('/usuario/:id', validateToken , (req, res) => {
     /* validateToken is the MIDDLEWARE which is going to trigger ç
        when the current route is executed */
-       
+
     let id = req.params.id
     let body = _.pick(req.body, ['nombre', 'email', 'img', 'role', 'estado'])
 
@@ -45,7 +45,7 @@ app.get('/usuario/:id', validateToken , (req, res) => {
 
 // GetBySearchQuery - TypeII
 //-----------------------------
-app.get('/usuario', function(req, res) {
+app.get('/usuario', validateToken, function(req, res) {
 
     // Paging  
     //--------------------------------------
@@ -131,7 +131,7 @@ app.post('/usuario', function(req, res) {
 
 })
 
-app.put('/usuario/:id', function(req, res) {
+app.put('/usuario/:id', validateToken, function(req, res) {
     let id = req.params.id
     let body = _.pick(req.body, ['nombre', 'email', 'img', 'role', 'estado'])
 
@@ -157,7 +157,7 @@ app.put('/usuario/:id', function(req, res) {
 
 })
 
-app.delete('/usuario/:id', function(req, res) {
+app.delete('/usuario/:id', validateToken,  function(req, res) {
     let id = req.params.id
 
     // To DELETE completely the PHYSICAL element from the Database

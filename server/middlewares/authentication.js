@@ -18,7 +18,9 @@ let validateToken = (req, res, next) =>{
         if (error){
             return res.status(401).json({
                 ok: false,
-                error
+                error:{
+                    message: 'AccessToken is NOT valid'
+                }
             })
         }
 
