@@ -18,7 +18,10 @@ let mongoBaseUrl;
 if (process.env.NODE_ENV === 'dev') {
     mongoBaseUrl = 'mongodb://localhost:27017/coffeeShop';
 } else {
-    mongoBaseUrl = 'mongodb+srv://crackmagic:nvbCryuZ1rWJbR6d@cluster0-pzplf.mongodb.net/coffeeShop';
+    //mongoBaseUrl = 'mongodb+srv://crackmagic:nvbCryuZ1rWJbR6d@cluster0-pzplf.mongodb.net/coffeeShop';
+    
+    // Environment Heroku variable
+    mongoBaseUrl = process.env.MONGO_DB_URI
 }
 
 const mongoConnectOptions = {
