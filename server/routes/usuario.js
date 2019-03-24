@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt')
 const _ = require('underscore')
 
 const Usuario = require('../models/usuario')
-const {validateToken} = require('../middlewares/authentication')
+const { validateToken, validateAdmin_Role } = require('../middlewares/authentication')
 
 const app = express()
 
@@ -14,7 +14,7 @@ const app = express()
 
 // GetById - TypeI
 //-----------------------------
-app.get('/usuario/:id', validateToken , (req, res) => {
+app.get('/usuario/:id', [validateToken], (req, res) => {
     /* validateToken is the MIDDLEWARE which is going to trigger ç
        when the current route is executed */
 
@@ -45,7 +45,7 @@ app.get('/usuario/:id', validateToken , (req, res) => {
 
 // GetBySearchQuery - TypeII
 //-----------------------------
-app.get('/usuario', validateToken, function(req, res) {
+app.get('/usuario', [validateToken], function(req, res) {
 
     // Paging  
     //--------------------------------------
@@ -89,7 +89,7 @@ app.get('/usuario', validateToken, function(req, res) {
 
 })
 
-app.post('/usuario', function(req, res) {
+app.post('/usuario', [validateToken, validateAdmin_Role], function(req, res) {
     let body = req.body
 
     let usuario = new Usuario({
@@ -131,7 +131,7 @@ app.post('/usuario', function(req, res) {
 
 })
 
-app.put('/usuario/:id', validateToken, function(req, res) {
+app.put('/usuario/:id', [validateToken, validateAdmin_Role], function(req, res) {
     let id = req.params.id
     let body = _.pick(req.body, ['nombre', 'email', 'img', 'role', 'estado'])
 
@@ -157,7 +157,7 @@ app.put('/usuario/:id', validateToken, function(req, res) {
 
 })
 
-app.delete('/usuario/:id', validateToken,  function(req, res) {
+app.delete('/usuario/:id', [validateToken, validateAdmin_Role], function(req, res) {
     let id = req.params.id
 
     // To DELETE completely the PHYSICAL element from the Database

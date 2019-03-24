@@ -65,12 +65,12 @@ app.use(bodyParser.json())
 
 // parse application/xml
 app.use(bodyParser.xml())
- 
+
 
 // Global configuration of "routes"
 //-------------------------------------
 app.use(require('./routes/index'))
-//-------------------------------------
+    //-------------------------------------
 
 mongoose.connect(serverConfig.mongoBaseUrl, serverConfig.mongoConnectOptions, (error, res) => {
     if (error) {
@@ -86,4 +86,3 @@ mongoose.connect(serverConfig.mongoBaseUrl, serverConfig.mongoConnectOptions, (e
 app.listen(process.env.PORT, () => {
     console.log('The RESTfulServer PORT enabled on: ', process.env.PORT, )
 })
-
