@@ -89,7 +89,7 @@ app.get('/usuario', [validateToken], function(req, res) {
 
 })
 
-app.post('/usuario', [validateToken, validateAdmin_Role], function(req, res) {
+app.post('/usuario', function(req, res) {
     let body = req.body
 
     let usuario = new Usuario({
