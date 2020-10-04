@@ -30,19 +30,20 @@ if (process.env.NODE_ENV === 'dev') {
     mongoBaseUrl = 'mongodb://localhost:27017/coffeeShop';
 } else {
     //mongoBaseUrl = 'mongodb+srv://crackmagic:nvbCryuZ1rWJbR6d@cluster0-pzplf.mongodb.net/coffeeShop';
-    
+
     // Environment Heroku variable
     mongoBaseUrl = process.env.MONGO_DB_URI || 'mongodb+srv://crackmagic:nvbCryuZ1rWJbR6d@cluster0-pzplf.mongodb.net/coffeeShop'
-    
+
 }
 
 const mongoConnectOptions = {
+    useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
     autoIndex: false, // Don't build indexes
-    reconnectTries: Number.MAX_VALUE, // Never stop trying to reconnect
-    reconnectInterval: 500, // Reconnect every 500ms
+    // reconnectTries: Number.MAX_VALUE, // Never stop trying to reconnect
+    // reconnectInterval: 500, // Reconnect every 500ms
     poolSize: 10, // Maintain up to 10 socket connections
     // If not connected, return errors immediately rather than waiting for reconnect
     bufferMaxEntries: 0,

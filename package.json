@@ -1,28 +1,33 @@
 {
-  "name": "07-restserver",
-  "version": "1.0.0",
-  "engines": {
-    "node": "10.6.0"
-  },
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node server/server.js",
-    "nodemon": "nodemon server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Leo Martin",
-  "license": "MIT",
-  "dependencies": {
-    "bcrypt": "^3.0.4",
-    "body-parser": "^1.18.3",
-    "body-parser-xml-json": "^1.0.0",
-    "express": "^4.16.4",
-    "fhir": "^4.5.0",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.4.19",
-    "mongoose-unique-validator": "^2.0.2",
-    "underscore": "^1.9.1",
-    "xml-js": "^1.6.11"
-  }
+    "name": "07-restserver",
+    "version": "1.0.0",
+    "engines": {
+        "node": "10.6.0"
+    },
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node server/server.js",
+        "nodemon": "nodemon server/server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Leo Martin",
+    "license": "MIT",
+    "dependencies": {
+        "bcrypt": "^5.0.0",
+        "body-parser": "^1.19.0",
+        "body-parser-xml-json": "^1.0.0",
+        "connect-multiparty": "^2.2.0",
+        "express": "^4.17.1",
+        "fhir": "^4.7.10",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.10.7",
+        "mongoose-unique-validator": "^2.0.3",
+        "underscore": "^1.11.0",
+        "validator": "^13.1.17",
+        "xml-js": "^1.6.11"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    }
 }
